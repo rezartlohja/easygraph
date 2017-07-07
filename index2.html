@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./Chart.js"></script>
+    <!--<script src="./EasyGraph.js"></script>-->
+</head>
+<body>
+    <canvas id="myChart" chartType="bar" json="data.json"></canvas>
+    <canvas id="dada" chartType="line" json="data2.json"></canvas>
+    <canvas id="myChart1" chartType="bar" json="data.json"></canvas>
+    <canvas id="dada1" chartType="line" json="data2.json"></canvas>
+<script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data:{
+            "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange","Granata"],
+            "datasets": [{
+            "label": "# of Votes",
+            "data": [12, 19, 3, 5, 2, 3,33]
+        }]},
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+    var ctx = document.getElementById("dada").getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data:{
+            "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange","Granata"],
+            "datasets": [{
+                "label": "# of Votes",
+                "data": [12, 19, 3, 5, 2, 3,33]
+            }]},
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+    var ctx = document.getElementById("myChart1").getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data:{
+            "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange","Granata"],
+            "datasets": [{
+                "label": "# of Votes",
+                "data": [12, 19, 3, 5, 2, 3,33]
+            }]},
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>
