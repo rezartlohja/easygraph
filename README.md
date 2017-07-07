@@ -1,0 +1,2 @@
+# easygraph
+EasyGraph JS
