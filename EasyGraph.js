@@ -22,7 +22,6 @@ $(function() {
         mycanvas.setAttribute('id',id);
         this.replaceWith(mycanvas);
 
-        //var context = document.getElementById(id).getContext('2d');
         var context = mycanvas.getContext('2d');
         console.log('"'+chart_type+'"',json_url,context);
 
