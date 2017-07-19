@@ -17,15 +17,28 @@ $(function() {
     graphs.each(function(){
         var chart_type= this.getAttribute('charttype');
         var json_url = this.getAttribute('json');
+
+        var filters = this.getAttribute('filters');
+        if(filters) filters = filters.split(',');
+
         var mycanvas= document.createElement('canvas');
         var id = 'canvas'+this.getAttribute('id');
         mycanvas.setAttribute('id',id);
         this.replaceWith(mycanvas);
 
         var context = mycanvas.getContext('2d');
-        console.log('"'+chart_type+'"',json_url,context);
+        console.log(filters,json_url);
 
         $.getJSON( json_url, function( data ) {
+            if(filters){
+                $.each(filters,function(i,v){
+                        console.log(v);
+                        data = window[v](data);
+                    }
+                );
+            }
+
+
             switch (chart_type){
                 case 'bar':
                     drawBar(context,data);
@@ -67,4 +80,39 @@ function drawLine(ctx,data){
             }
         }
     });
+}
+
+function frequencyDistribution(data){
+    dataset = {};
+    $.each(data,function(ind,val){
+        if(!(val in dataset)) dataset[val]=0;
+        dataset[val]++;
+    });
+    output_data={
+        "labels":[],
+        "datasets": [
+            {
+                "data": [],
+                "backgroundColor": []
+            }
+            ]
+    };
+    $.each(dataset,function(ind,val){
+        var r=getRandomArbitrary(0,255);
+        var g=getRandomArbitrary(0,255);
+        var b=getRandomArbitrary(0,255);
+        console.log(r,g,b);
+        output_data["labels"].push(ind);
+        output_data["datasets"][0]["data"].push(val);
+        output_data["datasets"][0]["backgroundColor"].push("rgba("+r+", "+g+", "+b+", 0.4)");
+
+    });
+
+    console.log(dataset);
+    console.log(output_data);
+    return output_data;
+}
+
+function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
 }
