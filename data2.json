@@ -1,7 +1,51 @@
 {
-  "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange","Granata"],
-  "datasets": [{
-    "label": "# of Votes",
-    "data": [2, 9, 13, 15, 12, 13,5]
-  }]
+  "data": {
+    "labels": [
+      "Red",
+      "Blue",
+      "Yellow",
+      "Green",
+      "Purple",
+      "Orange",
+      "Granata"
+    ],
+    "datasets": [
+      {
+        "label": "# of Votes",
+        "data": [
+          2,
+          9,
+          13,
+          15,
+          12,
+          13,
+          5
+        ]
+      },
+      {
+        "label": "# of students",
+        "data": [
+          24,
+          2,
+          3,
+          10,
+          16,
+          3,
+          15
+        ]
+      },
+      {
+        "label": "# of lessons",
+        "data": [
+          13,
+          6,
+          14,
+          21,
+          10,
+          24,
+          4
+        ]
+      }
+    ]
+  }
 }
