@@ -3,74 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="./jquery-3.2.1.min.js"></script>
     <script src="./Chart.js"></script>
-    <!--<script src="./EasyGraph.js"></script>-->
+    <script src="./EasyGraphClasses.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-    <canvas id="myChart" chartType="bar" json="data.json"></canvas>
-    <canvas id="dada" chartType="line" json="data2.json"></canvas>
-    <canvas id="myChart1" chartType="bar" json="data.json"></canvas>
-    <canvas id="dada1" chartType="line" json="data2.json"></canvas>
-<script>
-    var ctx = document.getElementById("myChart").getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data:{
-            "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange","Granata"],
-            "datasets": [{
-            "label": "# of Votes",
-            "data": [12, 19, 3, 5, 2, 3,33]
-        }]},
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
-
-    var ctx = document.getElementById("dada").getContext('2d');
-    new Chart(ctx, {
-        type: 'bubble',
-        data:{
-            "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange","Granata"],
-            "datasets": [{
-                "label": "# of Votes",
-                "data": [12, 19, 3, 5, 2, 3,33]
-            }]},
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
-
-    var ctx = document.getElementById("myChart1").getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data:{
-            "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange","Granata"],
-            "datasets": [{
-                "label": "# of Votes",
-                "data": [12, 19, 3, 5, 2, 3,33]
-            }]},
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
-        }
-    });
-</script>
+<div class="col-md-6">
+    <easygraph id="myChart" chartType="bar" json="data.json" filters="frequencyDistribution"></easygraph>
+</div>
+<div class="col-md-6">
+    <easygraph id="dada" chartType="line" json="data_elementi_grezzi.json" filters="frequencyDistribution"></easygraph>
+</div>
+<div class="col-md-6">
+    <easygraph id="myChart1" chartType="bar" json="data2.json" filters="myNewFilter"></easygraph>
+</div>
+<!--<div class="col-md-6">-->
+    <!--<easygraph id="myradar" chartType="polarArea" json="data2.json" ></easygraph>-->
+<!--</div>-->
+<!--<div class="col-md-6">-->
+    <!--<easygraph id="dada1" chartType="pie" json="data.json"></easygraph>-->
+<!--</div>-->
+<!--<div class="col-md-6">-->
+    <!--<easygraph id="graph1" chartType="bubble" json="data_bubble.json"></easygraph>-->
+<!--</div>-->
+<!--<div class="col-md-6">-->
+    <!--<easygraph id="graphscatter" chartType="scatter" json="data_scatter.json"></easygraph>-->
+<!--</div>-->
 </body>
 </html>
