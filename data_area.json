@@ -1,9 +1,0 @@
-{
-  "datasets": [
-    {"fill": "origin"},
-    {"fill": "-1"},
-    {"fill": 1},
-    {"fill": false},
-    {"fill": "-2"}
-  ]
-}
