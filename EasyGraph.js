@@ -34,7 +34,6 @@ class EasyGraph{
                     EGI.data = EGI.data['data'];
                 }
                 var EGD = EasyGraphFactory.getDrawObject(EGI);
-                console.log(EGD);
                 if(EGD) EGD.draw();
             }) .fail(function( jqxhr, textStatus, error ){
                 var err = textStatus + ", " + error;
@@ -60,7 +59,6 @@ class EasyGraphFactory{
      * @returns {*}
      */
     static getDrawObject(EasyGraphItem){
-        console.log(EasyGraphItem.type);
         switch(EasyGraphItem.type){
             case 'bar':
                 return new EasyGraphDrawBar(EasyGraphItem);
@@ -140,7 +138,6 @@ class EasyGraphDrawLine extends EasyGraphDraw{
     }
 
     check(){
-        console.log(this.easy_graph_item);
         if(!this.easy_graph_item.data.hasOwnProperty('datasets')) return false;
         var EGDL=this;
         $.each(this.easy_graph_item.data['datasets'],function(ind,dataset){
