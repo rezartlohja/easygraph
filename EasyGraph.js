@@ -20,7 +20,7 @@ class EasyGraph{
 
             EGI.context=mycanvas.getContext('2d');
 
-            $.getJSON( EGI.json, function( data ) {
+            $.ajax({url: EGI.json}).done(function( data ) {
                 EGI.data=data;
                 if(EGI.filters){
                     $.each(EGI.filters,function(i,v){
@@ -160,6 +160,8 @@ class EasyGraphDrawLine extends EasyGraphDraw{
                 output_data["datasets"][ind]["borderColor"] = "rgba("+rgb+")";
             if(!output_data["datasets"][ind].hasOwnProperty("borderWidth"))
                 output_data["datasets"][ind]["borderWidth"] = 1;
+            if(!output_data["datasets"][ind].hasOwnProperty("fill"))
+                output_data["datasets"][ind]["fill"] = false;
         });
         return output_data;
     }
